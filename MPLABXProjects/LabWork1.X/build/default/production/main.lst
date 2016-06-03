@@ -1,0 +1,76 @@
+MPASM 5.67                          MAIN.ASM   6-2-2016  22:31:56         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001 ; TODO INSERT CONFIG CODE HERE USING CONFIG BITS GENERATOR
+                      00002 
+                      00003     LIST        p=16F84A
+2007   3FF1           00004     __CONFIG    03FF1H
+                      00005    
+                      00006     org     0
+                      00007 
+0000   0186           00008     CLRF    06h
+0001   1683           00009     bsf     03h,5
+0002   0186           00010     CLRF    06h
+0003   1283           00011     bcf     03h,5
+                      00012     
+Warning[207]: Found label after column 1. (START)
+0004                  00013     START
+                      00014         
+0004   1406           00015         bsf 06h,0
+0005   2???           00016         call delay
+0006   1006           00017         bcf 06h,0
+0007   1486           00018         bsf 06h,1
+0008   2???           00019         call delay
+0009   1086           00020         bcf 06h,1
+000A   1506           00021         bsf 06h,2
+000B   2???           00022         call delay
+000C   1106           00023         bcf 06h,2
+000D   2???           00024         GOTO        START
+                      00025    
+Warning[207]: Found label after column 1. (delay)
+000E                  00026     delay
+                      00027     ; Задержка 3 000 000 машинных циклов
+                      00028     ; Длительность задержки 3 секунд
+                      00029     ; Частота задающего генератора 4 МГц
+                      00030 
+000E   3000           00031             movlw       .0
+000F   009C           00032             movwf       1CH
+0010   3033           00033             movlw       .51
+0011   009D           00034             movwf       1DH
+0012   3010           00035             movlw       .16
+0013   009E           00036             movwf       1EH
+0014   0B9C           00037             decfsz      1CH,F
+0015   2???           00038             goto        $-1
+0016   0064           00039             clrwdt
+0017   0B9D           00040             decfsz      1DH,F
+0018   2???           00041             goto        $-4
+0019   0B9E           00042             decfsz      1EH,F
+001A   2???           00043             goto        $-6
+001B   0000           00044             nop
+001C   0000           00045             nop
+001D   0008           00046     return
+                      00047         
+                      00048         
+                      00049         
+3FF1                  00050     END
+MPASM 5.67                          MAIN.ASM   6-2-2016  22:31:56         PAGE  2
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+START                             00000004
+_.org_0_0015                      00000015
+_.org_0_0018                      00000018
+_.org_0_001A                      0000001A
+__16F84A                          00000001
+delay                             0000000E
+
+Errors   :     0
+Warnings :     2 reported,     0 suppressed
+Messages :     0 reported,     0 suppressed
+
+

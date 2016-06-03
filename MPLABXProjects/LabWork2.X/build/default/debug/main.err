@@ -1,0 +1,4 @@
+Warning[207] D:\PROJECTS\MPLABXPROJECTS\LABWORK2.X\MAIN.ASM 7 : Found label after column 1. (Reg_A)
+Warning[207] D:\PROJECTS\MPLABXPROJECTS\LABWORK2.X\MAIN.ASM 8 : Found label after column 1. (Reg_B)
+Warning[205] D:\PROJECTS\MPLABXPROJECTS\LABWORK2.X\MAIN.ASM 13 : Found directive in column 1. (org)
+Warning[207] D:\PROJECTS\MPLABXPROJECTS\LABWORK2.X\MAIN.ASM 15 : Found label after column 1. (Start)

@@ -1,0 +1,56 @@
+MPASM 5.67                          MAIN.ASM   6-3-2016  8:25:05         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001     LIST        p=16F84A
+2007   3FF1           00002     __CONFIG    03FF1H
+                      00003         
+                      00004 ;====================================================================
+                      00005 ; VARIABLES
+                      00006 ;====================================================================
+Warning[207]: Found label after column 1. (Reg_A)
+  00000010            00007         Reg_A   EQU 10H
+Warning[207]: Found label after column 1. (Reg_B)
+  00000011            00008         Reg_B   EQU 11H
+                      00009         
+                      00010 ;====================================================================
+                      00011 ; CODE SEGMENT
+                      00012 ;====================================================================           
+Warning[205]: Found directive in column 1. (org)
+                      00013 org 0
+                      00014 
+Warning[207]: Found label after column 1. (Start)
+0000                  00015         Start
+                      00016       ; Write your code here
+                      00017     
+0000                  00018 Loop  
+                      00019       ;??????? ???????? 0F ? ??????? ????? ???????????
+0000   300F           00020       movlw     b'00001111'
+0001   0090           00021       movwf     Reg_A
+                      00022             ;??????? ???????? F0 ? ??????? ????? ???????????
+0002   30F0           00023       movlw     b'11110000'
+0003   0490           00024       IORWF     Reg_A,1
+                      00025       
+0004   0000           00026       nop
+0005   0000           00027       nop
+0006   2???           00028       goto  Loop
+3FF1                  00029     end
+MPASM 5.67                          MAIN.ASM   6-3-2016  8:25:05         PAGE  2
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+Loop                              00000000
+Reg_A                             00000010
+Reg_B                             00000011
+Start                             00000000
+__16F84A                          00000001
+
+Errors   :     0
+Warnings :     4 reported,     0 suppressed
+Messages :     0 reported,     0 suppressed
+
+

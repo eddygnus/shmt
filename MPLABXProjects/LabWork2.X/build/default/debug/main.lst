@@ -1,0 +1,73 @@
+MPASM 5.67                          MAIN.ASM   6-3-2016  9:07:26         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001     LIST        p=16F84A
+2007   3FF1           00002     __CONFIG    03FF1H
+                      00003         
+                      00004 ;====================================================================
+                      00005 ; VARIABLES
+                      00006 ;====================================================================
+Warning[207]: Found label after column 1. (Reg_A)
+  00000010            00007         Reg_A   EQU 10H
+Warning[207]: Found label after column 1. (Reg_B)
+  00000011            00008         Reg_B   EQU 11H
+                      00009         
+                      00010 ;====================================================================
+                      00011 ; CODE SEGMENT
+                      00012 ;====================================================================           
+Warning[205]: Found directive in column 1. (org)
+                      00013 org 0
+                      00014 
+Warning[207]: Found label after column 1. (Start)
+0000                  00015         Start
+                      00016       ; Write your code here
+                      00017     
+0000                  00018 Loop  
+                      00019       ;??????? ???????? 0F ? ??????? ????? ???????????
+0000   300F           00020       movlw     b'00001111'     ; 0F -> W
+0001   0090           00021       movwf     Reg_A           ; W -> Reg_A
+0002   30F0           00022       movlw     b'11110000'     ; F0 -> W
+0003   0490           00023       IORWF     Reg_A,1     ; (W or Reg_A)-> Reg_A
+                      00024       
+0004   3040           00025       movlw     .64
+0005   0590           00026       ANDWF     Reg_A, 1    ; (W and Reg_A)-> Reg_A
+                      00027       
+0006   0710           00028       addwf     Reg_A,0     ; (W + Reg_A) -> W
+0007   0790           00029       addwf     Reg_A,1     ; (W + Reg_A) -> Reg_A
+                      00030       
+                      00031       
+0008   307B           00032       movlw     .123
+0009   0091           00033       movwf     Reg_B
+000A   0810           00034       movfw     Reg_A
+000B   0211           00035       subwf     Reg_B,0
+000C   0090           00036       movwf     Reg_A
+                      00037       
+000D   0000           00038       nop
+                      00039       
+                      00040       
+                      00041       
+                      00042       
+000E   2???           00043       goto  Loop
+3FF1                  00044     end
+MPASM 5.67                          MAIN.ASM   6-3-2016  9:07:26         PAGE  2
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+Loop                              00000000
+Reg_A                             00000010
+Reg_B                             00000011
+Start                             00000000
+__16F84A                          00000001
+__DEBUG                           
+__MPLAB_DEBUGGER_SIMULATOR        1
+
+Errors   :     0
+Warnings :     4 reported,     0 suppressed
+Messages :     0 reported,     0 suppressed
+
+
